@@ -1,0 +1,19 @@
+{
+  "name": "tne-backend",
+  "version": "1.0.0",
+  "description": "Back end for 301 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Top-notch-entertainment/TNE-BackEnd.git"
+  },
+  "author": "Tricia Sawyer, Tim Maupin, and Bryan Gonzalez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Top-notch-entertainment/TNE-BackEnd/issues"
+  },
+  "homepage": "https://github.com/Top-notch-entertainment/TNE-BackEnd#readme"
+}
