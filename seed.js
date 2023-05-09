@@ -14,5 +14,16 @@ async function seed() {
             .then(() => console.log('Mongo DB is here'))
             .catch(e => console.log(e));
 
-    
+   
+            
+
+
+
+    console.log('Clocing DB connection for seed');
+    mongoose.disconnect();
 }
+
+
+
+
+seed();
