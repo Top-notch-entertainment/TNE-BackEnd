@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const musicSchema = new Schema({
-  name: { type: String, require: true },
+  username: { type: String, require: true },
   email: String,
 });
 
