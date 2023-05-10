@@ -27,40 +27,72 @@ async function getSpotifyAccessToken() {
         );
 
         // Return the access token from the response
+        console.log('Expired?', response.data);
         return response.data.access_token;
+
     } catch (error) {
         // If there's an error, log it to the console and return null
         console.error('Error fetching access token:', error.response.data);
         return null;
     }
+    console.log("🚀 ~ file: spotify-api.js:36 ~ getSpotifyAccessToken ~ response:", response)
 }
 
 // Define an asynchronous function called search that takes an Express request and response object
-async function search(req, res) {
-    // Extract the 'genre' query parameter from the request
-    const { genre } = req.query;
+async function browseGenre(genre) {
+    
 
-    try {
-        // Send a GET request to Spotify's browse categories API using the genre query parameter and access token
-        const response = await axios.get('https://api.spotify.com/v1/browse/categories/' + genre + '/playlists', {
-            headers: {
-                // 'Authorization': 'Bearer' is a required header, followed by the Spotify access token
-                // It informs the server that we are using the Bearer Authorization scheme with an access token
-                'Authorization': 'Bearer ' + process.env.SPOTIFY_ACCESS_TOKEN,
-            },
+
+    // Send a GET request to Spotify's browse categories API using the genre query parameter and access token
+    const response = await axios.get('https://api.spotify.com/v1/browse/categories/' + genre + '/playlists', {
+        headers: {
+            // 'Authorization': 'Bearer' is a required header, followed by the Spotify access token
+            // It informs the server that we are using the Bearer Authorization scheme with an access token
+            'Authorization': 'Bearer ' + process.env.SPOTIFY_ACCESS_TOKEN,
+        }
         });
+    
 
-        // Send the response data back to the client as JSON
-        res.json(response.data);
-    } catch (error) {
-        // If there's an error, log it to the console and send a 500 status code with an error message
-        console.error(error);
-        res.status(500).json({ message: 'Error fetching data from Spotify API' });
-    }
+    // Send the response data back to the client as JSON
+    // res.json(response.data);
+    return response.data;
+
 }
+
+
+
+// async function searchMusicData(searchData) {
+    
+
+
+//     // Send a GET request to Spotify's browse categories API using the genre query parameter and access token
+//     const response = await axios.get('https://api.spotify.com/v1/browse/categories/' + genre + '/playlists', {
+//         headers: {
+//             // 'Authorization': 'Bearer' is a required header, followed by the Spotify access token
+//             // It informs the server that we are using the Bearer Authorization scheme with an access token
+//             'Authorization': 'Bearer ' + process.env.SPOTIFY_ACCESS_TOKEN,
+//         }
+//         });
+    
+
+//     // Send the response data back to the client as JSON
+//     // res.json(response.data);
+//     return response.data;
+
+// }
+
+
+
+
+
+
+
+
+
+
 
 // Export the getSpotifyAccessToken and search functions so they can be used in other files
 module.exports = {
     getSpotifyAccessToken,
-    search,
+    browseGenre,
 };
