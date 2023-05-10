@@ -59,6 +59,38 @@ async function browseGenre(genre) {
 
 }
 
+
+
+// async function searchMusicData(searchData) {
+    
+
+
+//     // Send a GET request to Spotify's browse categories API using the genre query parameter and access token
+//     const response = await axios.get('https://api.spotify.com/v1/browse/categories/' + genre + '/playlists', {
+//         headers: {
+//             // 'Authorization': 'Bearer' is a required header, followed by the Spotify access token
+//             // It informs the server that we are using the Bearer Authorization scheme with an access token
+//             'Authorization': 'Bearer ' + process.env.SPOTIFY_ACCESS_TOKEN,
+//         }
+//         });
+    
+
+//     // Send the response data back to the client as JSON
+//     // res.json(response.data);
+//     return response.data;
+
+// }
+
+
+
+
+
+
+
+
+
+
+
 // Export the getSpotifyAccessToken and search functions so they can be used in other files
 module.exports = {
     getSpotifyAccessToken,
