@@ -19,7 +19,7 @@ mongoose.connect(
 
 
   // Import spotify-api functions
-  const { getSpotifyAccessToken, search } = require('./spotify-api');
+  const { getSpotifyAccessToken, browseGenre } = require('./spotify-api');
 
 // const Music = require('./models/Music.js');
 const PORT = process.env.PORT || 5005;
@@ -34,8 +34,10 @@ app.get('/', (request, response) => {
 
 // Add API route to search for playlist by genre.
 
-app.get('/search', (request, response) => {
-  search(request, response)
+app.get('/browsegenre', (request, response) => {
+  // Extract the 'genre' query parameter from the request
+  const { genre } = request.query;
+  browseGenre(genre)
     .then(playlistData => response.status(200).send(playlistData))
     .catch(error => {
       console.error(error);
@@ -57,4 +59,7 @@ app.get('*', (request, response) => {
     console.error('Unable to fetch Spotify access token.');
   }
 })();
+
+
+
 app.listen(PORT, () => console.log(`listening on Port ${PORT}`));
