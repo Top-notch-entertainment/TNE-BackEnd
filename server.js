@@ -19,7 +19,7 @@ mongoose.connect(
 
 
   // Import spotify-api functions
-  const { getSpotifyAccessToken, browseGenre } = require('./spotify-api');
+  const { getSpotifyAccessToken, browseGenre, searchMusicData } = require('./spotify-api');
 
 // const Music = require('./models/Music.js');
 const PORT = process.env.PORT || 5005;
@@ -44,6 +44,22 @@ app.get('/browsegenre', (request, response) => {
       response.status(500).send('Sorry. Something went wrong!' + error.message);
     });
 });
+
+
+app.get('/search', (request, response) => {
+  // Extract the 'genre' query parameter from the request
+  const { searchData } = request.query;
+  searchMusicData(searchData)
+    .then(playlistData => response.status(200).send(playlistData))
+    .catch(error => {
+      console.error(error);
+      response.status(500).send('Sorry. Something went wrong!' + error.message);
+    });
+});
+
+
+
+
 
 app.get('*', (request, response) => {
   response.send('The route was not found. Error 404');

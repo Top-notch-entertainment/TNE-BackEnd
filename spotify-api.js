@@ -40,7 +40,7 @@ async function getSpotifyAccessToken() {
 
 // Define an asynchronous function called search that takes an Express request and response object
 async function browseGenre(genre) {
-    
+
 
 
     // Send a GET request to Spotify's browse categories API using the genre query parameter and access token
@@ -50,8 +50,8 @@ async function browseGenre(genre) {
             // It informs the server that we are using the Bearer Authorization scheme with an access token
             'Authorization': 'Bearer ' + process.env.SPOTIFY_ACCESS_TOKEN,
         }
-        });
-    
+    });
+
 
     // Send the response data back to the client as JSON
     // res.json(response.data);
@@ -61,25 +61,15 @@ async function browseGenre(genre) {
 
 
 
-// async function searchMusicData(searchData) {
-    
+async function searchMusicData(searchData) {
+    const response = await axios.get('https://api.spotify.com/v1/search?q=' + searchData + '&type=album,track&limit=5&', {
+        headers: {
+            'Authorization': 'Bearer ' + process.env.SPOTIFY_ACCESS_TOKEN,
+        }
+    });
+    return response.data;
 
-
-//     // Send a GET request to Spotify's browse categories API using the genre query parameter and access token
-//     const response = await axios.get('https://api.spotify.com/v1/browse/categories/' + genre + '/playlists', {
-//         headers: {
-//             // 'Authorization': 'Bearer' is a required header, followed by the Spotify access token
-//             // It informs the server that we are using the Bearer Authorization scheme with an access token
-//             'Authorization': 'Bearer ' + process.env.SPOTIFY_ACCESS_TOKEN,
-//         }
-//         });
-    
-
-//     // Send the response data back to the client as JSON
-//     // res.json(response.data);
-//     return response.data;
-
-// }
+}
 
 
 
@@ -95,4 +85,5 @@ async function browseGenre(genre) {
 module.exports = {
     getSpotifyAccessToken,
     browseGenre,
+    searchMusicData,
 };
