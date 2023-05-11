@@ -33,16 +33,7 @@ async function seed() {
     }]);
     console.log('Courage the Dog is here');
 
-    await Movie.create([{
-        username: 'White Chicks',
-        email: 'tmaupin2236@gmail.com'
-    }]);
-    console.log('White Chicks');
-
-
-
-
-
+   
 
 
     console.log('Closing DB connection for seed');
