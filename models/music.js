@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 const musicSchema = new Schema({
   name: { type: String, require: true },
-  
   email: String,
 });
 

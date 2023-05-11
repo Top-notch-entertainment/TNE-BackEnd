@@ -21,14 +21,19 @@ mongoose.connect(
   // Import spotify-api functions
   const { getSpotifyAccessToken, browseGenre, searchMusicData } = require('./spotify-api');
 
+
 // const Music = require('./models/Music.js');
 const PORT = process.env.PORT || 5005;
+//brings in code for api calls
+const getMovies = require('./movie-api.js');
 
 
 
 app.get('/', (request, response) => {
   response.send('Welcome to the Spotify Playlist Search API!');
 });
+//movie route
+app.get('/movie', getMovies);
 
 
 
@@ -56,8 +61,6 @@ app.get('/search', (request, response) => {
       response.status(500).send('Sorry. Something went wrong!' + error.message);
     });
 });
-
-
 
 
 

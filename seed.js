@@ -32,6 +32,9 @@ async function seed() {
     }]);
     console.log('Courage the Dog is here');
 
+   
+
+
     console.log('Closing DB connection for seed');
     mongoose.disconnect();
 }
