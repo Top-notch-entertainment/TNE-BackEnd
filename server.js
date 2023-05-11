@@ -24,6 +24,7 @@ mongoose.connect(
 
 // const Music = require('./models/Music.js');
 const PORT = process.env.PORT || 5005;
+//brings in code for api calls
 const getMovies = require('./models/movie.js');
 
 
@@ -31,6 +32,7 @@ const getMovies = require('./models/movie.js');
 app.get('/', (request, response) => {
   response.send('Welcome to the Spotify Playlist Search API!');
 });
+//movie route
 app.get('/movie', getMovies);
 
 
