@@ -4,8 +4,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const movieSchema = new Schema({
-  name: { type: String, require: true },
-  email: String,
+  title: { type: String, require: true },
+  overview: { type: String, require: true },
+  imageUrl: { type: String, require: true },
+  releasedOn: { type: String, require: true },
 });
 
 const MovieModel = mongoose.model('Movie', movieSchema);
