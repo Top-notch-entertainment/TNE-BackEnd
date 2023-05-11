@@ -33,7 +33,7 @@ app.get('/', (request, response) => {
   response.send('Welcome to the Spotify Playlist Search API!');
 });
 //movie route
-app.get('/movie', getMovies);
+app.get('/movies', getMovies);
 
 
 
