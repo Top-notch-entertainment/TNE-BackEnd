@@ -5,7 +5,6 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 const Music = require('./models/music');
-const Movie = require('./models/movie');
 
 async function seed() {
 
