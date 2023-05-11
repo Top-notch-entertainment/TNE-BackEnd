@@ -25,7 +25,7 @@ mongoose.connect(
 // const Music = require('./models/Music.js');
 const PORT = process.env.PORT || 5005;
 //brings in code for api calls
-const getMovies = require('./models/movie.js');
+const getMovies = require('./movie-api.js');
 
 
 

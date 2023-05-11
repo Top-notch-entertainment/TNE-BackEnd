@@ -5,6 +5,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 const Music = require('./models/music');
+const Movie = require('./models/movie');
 
 async function seed() {
 
@@ -31,6 +32,18 @@ async function seed() {
         email: 'tmaupin2236@gmail.com'
     }]);
     console.log('Courage the Dog is here');
+
+    await Movie.create([{
+        username: 'White Chicks',
+        email: 'tmaupin2236@gmail.com'
+    }]);
+    console.log('White Chicks');
+
+
+
+
+
+
 
     console.log('Closing DB connection for seed');
     mongoose.disconnect();
